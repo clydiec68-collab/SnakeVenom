@@ -1,0 +1,531 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Scores Explained</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Public+Sans:wght@400;600;700&family=Zilla+Slab:ital,wght@0,500;0,600;0,700;1,500&display=swap">
+<link rel="stylesheet" href="site.css">
+<style>
+  .toc { display: flex; flex-wrap: wrap; gap: 8px; }
+  .toc a { text-decoration: none; font-size: 0.9rem; padding: 6px 12px; border: 1px solid var(--rule); border-radius: 999px; color: var(--ink); background: var(--surface); }
+  .toc a:hover { border-color: var(--accent); }
+  .part { display: grid; gap: 40px; padding-top: 36px; border-top: 3px solid var(--ink); scroll-margin-top: 80px; }
+  .part-head { display: grid; gap: 10px; max-width: var(--measure); }
+  .part-head .eyebrow { color: var(--accent); }
+  [id] { scroll-margin-top: 80px; }
+  .overview { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
+  .ov { background: var(--surface); border: 1px solid var(--rule); border-radius: var(--radius); padding: 16px; display: grid; gap: 8px; align-content: start; text-decoration: none; color: var(--ink); }
+  a.ov:hover { border-color: var(--accent); }
+  .ov p { color: var(--ink-2); font-size: 0.92rem; }
+  .ov .inputs { display: flex; flex-wrap: wrap; gap: 6px; }
+  .ov .inputs span { font: 500 0.78rem/1 var(--font-data); padding: 4px 8px; border-radius: 4px; background: var(--accent-soft); }
+  .calc { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); border: 1px solid var(--rule); border-radius: var(--radius); background: var(--surface); overflow: hidden; }
+  .calc > div { padding: 16px; display: grid; gap: 4px; border-right: 1px solid var(--rule); }
+  .calc > div:last-child { border-right: 0; background: var(--accent-soft); }
+  .calc .v { font: 500 1.5rem/1.1 var(--font-data); }
+  .calc .k { font-size: 0.82rem; color: var(--ink-2); }
+  .op { font-family: var(--font-data); color: var(--muted); }
+  .proscons { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; }
+  .proscons ul { margin: 0; padding-left: 1.1em; display: grid; gap: 8px; font-size: 0.95rem; }
+  .proscons > div { display: grid; gap: 10px; align-content: start; }
+  .steps { list-style: none; margin: 0; padding: 0; display: grid; counter-reset: s; max-width: 820px; }
+  .steps li { counter-increment: s; display: grid; grid-template-columns: 2.4rem minmax(0,1fr) auto; gap: 4px 14px; padding: 14px 0; border-bottom: 1px solid var(--rule); align-items: baseline; }
+  .steps li::before { content: counter(s); font: 700 1.3rem/1 var(--font-display); color: var(--accent); }
+  .steps li p { font-size: 0.93rem; color: var(--ink-2); grid-column: 2; }
+  .steps li b { grid-column: 2; }
+  .steps .ex { grid-column: 3; grid-row: 1 / span 2; font: 500 0.95rem/1.3 var(--font-data); text-align: right; white-space: nowrap; }
+  .steps .ex small { display: block; font-size: 0.72rem; color: var(--muted); font-family: var(--font-body); }
+  @media (max-width: 560px) { .steps li { grid-template-columns: 2rem minmax(0,1fr); } .steps .ex { grid-column: 2; grid-row: auto; text-align: left; } }
+  .versus { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
+  .vs { background: var(--surface); border: 1px solid var(--rule); border-radius: var(--radius); padding: 16px; display: grid; gap: 10px; }
+  .vs .row { display: grid; grid-template-columns: 5.5rem minmax(0,1fr) 3rem; gap: 10px; align-items: center; font-size: 0.88rem; }
+  .vs .row .num { text-align: right; }
+  .track { height: 8px; border-radius: 4px; background: var(--rule); overflow: hidden; }
+  .fill { height: 100%; border-radius: 4px; background: var(--ink-2); }
+  .fill.total { background: var(--accent); }
+  .weights { display: grid; gap: 8px; max-width: 560px; }
+  .weights .row { display: grid; grid-template-columns: 9rem minmax(0,1fr) 3.5rem; gap: 12px; align-items: center; font-size: 0.9rem; }
+  .weights .num { text-align: right; }
+  #dose, #ruler, #yruler, #hs { width: 100%; height: auto; display: block; }
+  #ruler, #yruler { min-width: 640px; }
+  .rdot { cursor: pointer; }
+  .rdot:hover, .rdot:focus { stroke: var(--ink); stroke-width: 2; outline: none; }
+  .lbl { fill: var(--ink); font-size: 11.5px; font-weight: 600; }
+  .anch { fill: var(--accent-soft); }
+  .anch-t { fill: var(--accent); font-size: 11px; font-weight: 600; }
+  .curve { fill: none; stroke: var(--accent); stroke-width: 2.5; }
+  .guide { stroke: var(--ink-2); stroke-width: 1.2; stroke-dasharray: 4 4; }
+  .lvl { font-family: var(--font-data); font-variant-numeric: tabular-nums; }
+</style>
+</head>
+<body data-page="scores.html">
+<script src="data.js"></script>
+<script src="common.js"></script>
+
+<main>
+  <section class="col">
+    <span class="eyebrow">How we measure danger</span>
+    <h1>Scores explained</h1>
+    <p class="lede">Every species gets two separate scores, plus an average of the two. This page explains what goes into each one, where the numbers come from, and how far to trust them.</p>
+  </section>
+
+  <nav class="toc" aria-label="On this page">
+    <a href="#venom-hazard">Venom Hazard</a>
+    <a href="#ld50">LD50</a>
+    <a href="#yield">Venom yield</a>
+    <a href="#human-risk">Human Risk</a>
+    <a href="#combined">Combined score</a>
+    <a href="#trust">How far to trust a number</a>
+  </nav>
+
+  <section class="overview" aria-label="The three scores">
+    <a class="ov" href="#venom-hazard"><span class="eyebrow">Score 1 · 0–100</span><h3>Venom Hazard</h3><p>How dangerous the venom itself is: how toxic it is, and how much of it the snake can deliver.</p><div class="inputs"><span>LD50</span><span>venom yield</span></div></a>
+    <a class="ov" href="#human-risk"><span class="eyebrow">Score 2 · 0–100</span><h3>Human Risk</h3><p>How likely a bite is to happen and to go badly for the person bitten.</p><div class="inputs"><span>encounter</span><span>bite propensity</span><span>onset</span><span>antivenom access</span></div></a>
+    <a class="ov" href="#combined"><span class="eyebrow">Average · 0–100</span><h3>Combined</h3><p>Both scores averaged, for a single sort order. Always read it with the two scores beside it.</p><div class="inputs"><span>Venom Hazard</span><span>Human Risk</span></div></a>
+  </section>
+
+  <!-- ============ VENOM HAZARD ============ -->
+  <div class="part" id="venom-hazard">
+    <div class="part-head">
+      <span class="eyebrow">Score 1</span>
+      <h2>Venom Hazard: how dangerous is the venom itself?</h2>
+      <p>Two measurements from the lab: how toxic the venom is per milligram (LD50), and how much venom the snake can produce (venom yield). A snake needs both to be truly dangerous. Very toxic venom in tiny amounts, or huge amounts of mild venom, both score lower than a snake with a lot of potent venom.</p>
+    </div>
+
+    <section class="col" id="ld50">
+      <h2>LD50: how toxic the venom is</h2>
+      <p>LD50 is the dose of venom that kills half of a group of test animals, usually mice. It is written in milligrams of venom per kilogram of body weight (mg/kg). The lower the number, the more toxic the venom.</p>
+      <p>When a headline calls a snake “the most venomous in the world”, it almost always means that snake has the lowest LD50.</p>
+    </section>
+
+    <section>
+      <h3>What 0.025 mg/kg looks like</h3>
+      <p class="col">The inland taipan’s venom has an LD50 of 0.025 mg/kg when injected under the skin of mice (Broad, Sutherland &amp; Coulter, 1979). For a typical 20-gram lab mouse, that works out to half a microgram.</p>
+      <div class="calc" role="group" aria-label="Worked example">
+        <div><span class="v">0.025</span><span class="k">mg of venom per kg of mouse</span></div>
+        <div><span class="v"><span class="op">×</span> 0.020</span><span class="k">kg, a 20 g mouse</span></div>
+        <div><span class="v"><span class="op">=</span> 0.0005</span><span class="k">mg, or 0.5 micrograms: enough to kill half the mice in a group</span></div>
+      </div>
+      <p class="caption">We do not multiply this up to a “human lethal dose”. People are not large mice: body size does not scale toxicity in a straight line, and species respond differently to the same toxins.</p>
+    </section>
+
+    <section class="with-notes">
+      <div class="col">
+        <h3>How the test works</h3>
+        <p>Researchers give several groups of mice increasing doses of venom and count how many die within a fixed time, commonly 24 or 48 hours. Plotted against dose, the results form an S-shaped curve. The LD50 is the dose where that curve crosses 50%.</p>
+        <p>The 50% point is calculated with statistical methods such as probit analysis, Spearman–Kärber or Reed–Muench, and a good study reports a confidence interval with it. Groups are often only 5 to 10 mice per dose, so that interval can be wide.</p>
+        <figure class="figure" style="margin:0">
+          <svg id="dose" viewBox="0 0 560 260" role="img" aria-label="Illustrative dose-response curve with the LD50 marked at 50 percent mortality"></svg>
+          <figcaption>Illustration only. Each dot is one dose group; the curve is fitted through them.</figcaption>
+        </figure>
+      </div>
+      <aside class="note">
+        <b>Why mice?</b>
+        <p>Mice are cheap, genetically consistent and well studied, which makes results comparable between labs. The test uses many animals, though, and toxinology is moving towards methods that use fewer (see “Other measures” below).</p>
+      </aside>
+    </section>
+
+    <section class="with-notes">
+      <div class="col">
+        <h3>Where the venom goes changes the number</h3>
+        <p>The same venom gives a different LD50 depending on how it is injected. This is the biggest source of confusion when figures from different studies are compared.</p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Route</th><th>Injected into</th><th>What it is used for</th></tr></thead>
+            <tbody>
+              <tr><td class="mono"><b>SC</b></td><td>Under the skin</td><td>Closest to a real bite. <b>Our preferred route.</b></td></tr>
+              <tr><td class="mono"><b>IV</b></td><td>A vein</td><td>The most standardised route; venom reaches the blood at once. Common in antivenom testing.</td></tr>
+              <tr><td class="mono"><b>IP</b></td><td>The belly cavity</td><td>Historically the most common route because it is easy, but absorption is less predictable.</td></tr>
+              <tr><td class="mono"><b>IM</b></td><td>A muscle</td><td>Less common; used in some tissue-damage studies.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>Even the liquid the venom is dissolved in matters. In the same 1979 study, inland taipan venom measured 0.025 mg/kg in plain saline and 0.01 mg/kg when diluted with a protein carrier (bovine serum albumin). We use the saline figure and keep the other on record.</p>
+      </div>
+      <aside class="note">
+        <b>On this site</b>
+        <p>Every LD50 shows its route. Values from IV, IP or IM tests are flagged, not converted, because there is no reliable conversion factor between routes.</p>
+      </aside>
+    </section>
+
+    <section>
+      <h3>All 94 species on one scale</h3>
+      <p class="col">LD50 values span more than four orders of magnitude, from 0.025 to over 700 mg/kg, so they only make sense on a logarithmic scale. Each step on the axis below is ten times the one before. Filled dots were tested under the skin (SC); hollow dots used another route or an unrecorded one.</p>
+      <figure class="figure" style="margin:0">
+        <div class="chart-wrap"><svg id="ruler" viewBox="0 0 900 250" role="img" aria-label="LD50 of every species on a logarithmic scale"></svg></div>
+        <figcaption>The shaded band marks the range we score from 100 (most toxic) to 0. Values outside it are capped, so one disputed figure at either end cannot stretch the scale for everyone else. Hover a dot for the species.</figcaption>
+      </figure>
+    </section>
+
+    <section>
+      <h3>What LD50 is good for, and what it misses</h3>
+      <div class="proscons">
+        <div>
+          <b>Good for</b>
+          <ul>
+            <li><b>One comparable number.</b> It puts very different venoms on a single scale.</li>
+            <li><b>Testing antivenom.</b> WHO guidelines measure antivenom strength by how many lethal doses of venom it neutralises.</li>
+            <li><b>Decades of data.</b> Results going back to the 1970s can still be compared.</li>
+          </ul>
+        </div>
+        <div>
+          <b>Misses</b>
+          <ul>
+            <li><b>People are not mice.</b> Mouse results do not reliably predict what a bite does to a person.</li>
+            <li><b>How much venom is delivered.</b> LD50 is toxicity per milligram. That is why we add venom yield, below.</li>
+            <li><b>Injury that doesn’t kill.</b> Tissue death, bleeding and lasting disability do not show up. Many viper bites maim far more often than they kill.</li>
+            <li><b>Slow killers.</b> The test favours fast-acting nerve toxins and underrates venoms that kill over days through bleeding or kidney failure.</li>
+            <li><b>Natural variation.</b> Venom changes with a snake’s age, region and diet, but studies often pool venom from several snakes.</li>
+            <li><b>How death happens.</b> A single number says nothing about whether it was paralysis, bleeding or heart failure.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="with-notes" id="yield">
+      <div class="col">
+        <h2>Venom yield: how much venom the snake has</h2>
+        <p>Venom yield is the amount of venom collected when a snake is “milked”: it bites through a membrane stretched over a container, or its venom glands are gently pressed. The venom is freeze-dried and weighed, and the result is given in milligrams of dry venom.</p>
+        <p>Sources usually give a typical figure and a maximum. <b>We score the maximum.</b> Many older sources give only a range without saying what the lower number means, so the maximum is the more consistent figure to compare.</p>
+      </div>
+      <aside class="note">
+        <b>Dry, not wet</b>
+        <p>Fresh venom is mostly water, so wet-weight figures are several times higher than dry ones. We only score dry weights and keep wet figures on record, marked as not comparable.</p>
+      </aside>
+    </section>
+
+    <section>
+      <figure class="figure" style="margin:0">
+        <div class="chart-wrap"><svg id="yruler" viewBox="0 0 900 230" role="img" aria-label="Maximum venom yield of every species on a logarithmic scale"></svg></div>
+        <figcaption>Maximum recorded yield per species, dry weight, log scale. Quantity is scored from 0 at the smallest (0.7 mg) to 100 at the largest (1,102 mg). Species with no yield figure yet are not shown and get no Venom Hazard.</figcaption>
+      </figure>
+    </section>
+
+    <section class="col">
+      <h3>What yield misses</h3>
+      <ul style="margin:0;padding-left:1.1em;display:grid;gap:8px">
+        <li><b>Milked is not injected.</b> Snakes control how much venom they use. Many defensive bites inject a fraction of the maximum, and some are “dry”, with no venom at all.</li>
+        <li><b>Big snakes, big yields.</b> Yield rises with body size, so a record from one large captive snake can sit far above what a typical wild snake produces.</li>
+        <li><b>Thin evidence.</b> Most yield figures come from older secondary compilations that don’t say how many snakes were milked. That is why most yields in our data are grade C.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h3>Why both measurements matter</h3>
+      <p class="col">Two snakes with almost the same Venom Hazard, for opposite reasons.</p>
+      <div class="versus" id="versus"></div>
+    </section>
+
+    <section>
+      <h3>How the two become one score</h3>
+      <p class="col">Worked through for Russell’s viper.</p>
+      <ol class="steps">
+        <li><b>Pick one LD50 per species</b><p>Under-the-skin (SC) tests are preferred. Competing figures stay on record, and a species is flagged when they differ by more than 1.5×.</p><span class="ex">0.03 mg/kg<small>SC · grade C</small></span></li>
+        <li><b>Score potency from 0 to 100 on a log scale</b><p>100 at the most toxic anchor (<span class="mono">0.039</span> mg/kg), 0 at the least toxic (<span class="mono">9.27</span> mg/kg). The anchors are the 2nd and 98th percentiles of all species, so one extreme value cannot stretch the scale. Anything beyond an anchor is capped.</p><span class="ex">Potency 100<small>0.03 is past the anchor, so capped</small></span></li>
+        <li><b>Score quantity from the maximum yield, also on a log scale</b><p>From the smallest maximum yield in the dataset (0.7 mg) to the largest (1,102 mg).</p><span class="ex">250 mg → 79.8</span></li>
+        <li><b>Average the two</b><p>Potency and quantity count equally by default. Both are required: a species missing either gets no Venom Hazard.</p><span class="ex">Venom Hazard 89.9<small>rank 1 of 78</small></span></li>
+      </ol>
+    </section>
+  </div>
+
+  <!-- ============ HUMAN RISK ============ -->
+  <div class="part" id="human-risk">
+    <div class="part-head">
+      <span class="eyebrow">Score 2</span>
+      <h2>Human Risk: how likely is a bite to happen and go badly?</h2>
+      <p>Venom alone doesn’t decide how many people a snake harms. Human Risk combines four things about the snake and the people around it. Unlike the lab measurements, these are informed judgements, so treat the score as indicative.</p>
+    </div>
+
+    <section>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Factor</th><th>The question</th><th>Scale</th><th>Where it comes from</th></tr></thead>
+          <tbody>
+            <tr><td><b>Encounter</b></td><td>What are your chances of encountering this snake? Very low for sea snakes and the inland taipan.</td><td class="lvl">1–10</td><td>Author estimate from range, habitat and how common the snake is near people.</td></tr>
+            <tr><td><b>Bite propensity</b></td><td>When met, how readily does it bite?</td><td class="lvl">1–5</td><td>Assigned from documented behaviour, using the scale below.</td></tr>
+            <tr><td><b>Onset</b></td><td>How fast does an untreated bite progress?</td><td class="lvl">5 levels</td><td>Clinical descriptions of envenoming.</td></tr>
+            <tr><td><b>Antivenom access</b></td><td>Is there an antivenom, and is it available where the snake lives?</td><td class="lvl">5 levels</td><td>Antivenom listings and regional availability.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="with-notes">
+      <div class="col">
+        <h3>Bite propensity</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th class="r">Level</th><th>Behaviour</th></tr></thead>
+            <tbody>
+              <tr><td class="r lvl">5</td><td>Strikes readily and repeatedly, or pursues a threat</td></tr>
+              <tr><td class="r lvl">4</td><td>Bites readily when disturbed, or holds still and strikes when stepped on</td></tr>
+              <tr><td class="r lvl">3</td><td>Defensive if cornered or provoked; usually warns or retreats first</td></tr>
+              <tr><td class="r lvl">2</td><td>Shy or docile; bites mainly if handled or stepped on</td></tr>
+              <tr><td class="r lvl">1</td><td>Rarely bites, even when handled</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <aside class="note">
+        <b>Left blank on purpose</b>
+        <p>Where the only description of a species is about its habitat or looks, not its temperament, we leave bite propensity empty rather than guess.</p>
+      </aside>
+    </section>
+
+    <section class="with-notes">
+      <div class="col">
+        <h3>Onset: why slow can score higher</h3>
+        <p>You might expect the fastest-acting venoms to score highest. We score the other way round. A bite that seems mild at first often leads people to delay going to hospital, and that delay is a major cause of death. Saw-scaled vipers and Russell’s viper are the classic examples.</p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Untreated onset</th><th class="r">Scores</th></tr></thead>
+            <tbody>
+              <tr><td>Slow (24 h or more)</td><td class="r lvl">90</td></tr>
+              <tr><td>Moderate to slow (hours to days)</td><td class="r lvl">70</td></tr>
+              <tr><td>Moderate (6–24 h)</td><td class="r lvl">50</td></tr>
+              <tr><td>Fast (hours)</td><td class="r lvl">30</td></tr>
+              <tr><td>Very fast (under 1 h to a few hours)</td><td class="r lvl">10</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <aside class="note">
+        <b>A setting, not a fact</b>
+        <p>This direction is a choice. Scoring it the other way, with fast onset high, would suit readers who care more about urgency than about delay.</p>
+      </aside>
+    </section>
+
+    <section class="with-notes">
+      <div class="col">
+        <h3>Antivenom access</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Access</th><th class="r">Scores</th></tr></thead>
+            <tbody>
+              <tr><td>Widely available</td><td class="r lvl">10</td></tr>
+              <tr><td>Regional</td><td class="r lvl">30</td></tr>
+              <tr><td>Limited</td><td class="r lvl">50</td></tr>
+              <tr><td>Very limited or unconfirmed</td><td class="r lvl">70</td></tr>
+              <tr><td>None</td><td class="r lvl">90</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <aside class="note">
+        <b>Known weakness</b>
+        <p>This measures whether an antivenom exists in the region, not whether a bitten person can reach it in time. Travel time to a hospital that holds stock would be a better measure, and it is on our list.</p>
+      </aside>
+    </section>
+
+    <section class="with-notes">
+      <div class="col">
+        <h3>How the four become one score</h3>
+        <p>Each factor is placed on a 10–90 scale. The lowest level scores 10, not 0, because a category is a band, not “no risk”. The four are then averaged with these weights:</p>
+        <div class="weights" id="weights"></div>
+        <p>If a factor is unknown, the average uses the others. A species needs at least three of the four for a score, and scores are most comparable between species with the same number of factors.</p>
+      </div>
+      <aside class="note">
+        <b>Russell’s viper</b>
+        <p class="mono" style="font-size:0.82rem">(90×25 + 90×15 + 70×15 + 10×10) ÷ 65</p>
+        <p>= <b class="mono">73.1</b>, rank 2 of 91</p>
+      </aside>
+    </section>
+  </div>
+
+  <!-- ============ COMBINED ============ -->
+  <div class="part" id="combined">
+    <div class="part-head">
+      <span class="eyebrow">Average</span>
+      <h2>The combined score</h2>
+      <p>The combined score is Venom Hazard and Human Risk averaged with equal weight. It gives one sort order for people who want a single list.</p>
+      <p>Use it with care. It blends the two questions we separated, so a middling combined score can hide very potent venom on a snake that people rarely meet, or the reverse. On every page we show it next to its two parts.</p>
+    </div>
+    <div class="calc" role="group" aria-label="Combined score for Russell's viper">
+      <div><span class="v">89.9</span><span class="k">Venom Hazard</span></div>
+      <div><span class="v"><span class="op">+</span> 73.1</span><span class="k">Human Risk</span></div>
+      <div><span class="v"><span class="op">÷ 2 =</span> 81.5</span><span class="k">Combined score for Russell’s viper, rank 1 of 78</span></div>
+    </div>
+  </div>
+
+  <!-- ============ TRUST ============ -->
+  <div class="part" id="trust">
+    <div class="part-head">
+      <span class="eyebrow">Evidence</span>
+      <h2>How far to trust a number</h2>
+      <p>Published figures are often copied from list to list with the original study lost along the way. So every value on this site carries its source and a grade.</p>
+    </div>
+
+    <section class="with-notes">
+      <div class="col">
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Grade</th><th>What it means</th><th>How we use it</th></tr></thead>
+            <tbody>
+              <tr><td><span class="tier A">A</span></td><td>A named, peer-reviewed study with its method stated</td><td>The gold standard</td></tr>
+              <tr><td><span class="tier B">B</span></td><td>An expert database, WHO document, or a study reached through one</td><td>Accepted</td></tr>
+              <tr><td><span class="tier C">C</span></td><td>A secondary compilation that doesn’t restate the method</td><td>Fine for comparison; flagged</td></tr>
+              <tr><td><span class="tier D">D</span></td><td>No traceable source</td><td>Shown with a warning until a source is found</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>A species’ data grade is the worse of its LD50 grade and its yield grade. Wikipedia tables and “most venomous” rankings are not accepted as sources at all.</p>
+      </div>
+      <aside class="note">
+        <b>Flags</b>
+        <p>A species is flagged when its sources differ by more than 1.5×, when its LD50 was not tested under the skin, or when an input is grade D.</p>
+      </aside>
+    </section>
+
+    <section class="with-notes">
+      <div class="col">
+        <h3>Why this matters: the hook-nosed sea snake</h3>
+        <p>Three LD50 figures circulate for this species, and they differ eightfold.</p>
+        <figure class="figure" style="margin:0">
+          <svg id="hs" viewBox="0 0 560 150" role="img" aria-label="Three LD50 figures for the hook-nosed sea snake"></svg>
+          <figcaption>Only the 0.164 mg/kg figure traces to a named study with its method stated. The lowest figure, the one that makes this snake look most toxic, has no traceable origin.</figcaption>
+        </figure>
+        <p>We use the 0.164 figure. The other two stay on record, and the species is flagged because its sources disagree. Switching dropped its Venom Hazard from 82 to 69.</p>
+      </div>
+    </section>
+
+    <section class="col">
+      <h3>Other measures toxinologists use</h3>
+      <div class="table-wrap">
+        <table>
+          <tbody>
+            <tr><td><b>ED50</b></td><td>The dose of antivenom that protects half the animals from a set amount of venom. Used to test antivenoms.</td></tr>
+            <tr><td><b>MHD / MND</b></td><td>Minimum haemorrhagic or necrotic dose: the smallest dose that causes a set amount of bleeding or tissue death. More relevant for many viper venoms.</td></tr>
+            <tr><td><b>Lab-dish tests</b></td><td>Clotting, enzyme and cell tests that measure what a venom does without killing animals.</td></tr>
+            <tr><td><b>Venomics</b></td><td>Identifying every protein in a venom by mass spectrometry. It shows how a venom works, not only how lethal it is.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="col">
+      <h3>Sources</h3>
+      <ul style="margin:0;padding-left:1.1em;display:grid;gap:6px;font-size:0.93rem">
+        <li>Broad, A.J., Sutherland, S.K. &amp; Coulter, A.R. (1979). The lethality in mice of dangerous Australian and other snake venom. <i>Toxicon</i> 17: 661–664.</li>
+        <li>World Health Organization (2017). <i>Guidelines for the production, control and regulation of snake antivenom immunoglobulins.</i></li>
+        <li>Ernst, C.H. &amp; Zug, G.R. (1996). <i>Snakes in Question.</i> Smithsonian Institution Press. Secondary compilation behind many grade C values.</li>
+      </ul>
+      <div class="editor"><span class="eyebrow">Editor’s note</span>Still needed before launch: citations for the statistical methods, for the claim about fast-acting venoms, for the yield statements, and for the onset reasoning (care-seeking delay).</div>
+    </section>
+  </div>
+</main>
+
+<script>
+(function () {
+  var NS = "http://www.w3.org/2000/svg";
+  function el(svg, t, a) { var e = document.createElementNS(NS, t); for (var k in a) e.setAttribute(k, a[k]); svg.appendChild(e); return e; }
+
+  // Dose-response illustration
+  (function () {
+    var s = document.getElementById("dose"), W = 560, H = 260, m = { l: 56, r: 16, t: 14, b: 44 };
+    var X = function (u) { return m.l + u * (W - m.l - m.r); }, Y = function (p) { return H - m.b - p / 100 * (H - m.t - m.b); };
+    [0, 50, 100].forEach(function (p) {
+      el(s, "line", { x1: X(0), x2: X(1), y1: Y(p), y2: Y(p), class: "gridline" });
+      el(s, "text", { x: m.l - 8, y: Y(p) + 4, "text-anchor": "end", class: "tick" }).textContent = p + "%";
+    });
+    var d = "", mid = 0.52, k = 11;
+    for (var i = 0; i <= 60; i++) { var u = i / 60, p = 100 / (1 + Math.exp(-k * (u - mid))); d += (i ? "L" : "M") + X(u).toFixed(1) + " " + Y(p).toFixed(1); }
+    el(s, "path", { d: d, class: "curve" });
+    [[0.2, 0], [0.37, 20], [0.52, 40], [0.67, 90], [0.84, 100]].forEach(function (g) {
+      el(s, "circle", { cx: X(g[0]), cy: Y(g[1]), r: 5, fill: "var(--surface)", stroke: "var(--ink)", "stroke-width": 1.8 });
+    });
+    el(s, "line", { x1: X(0), x2: X(mid), y1: Y(50), y2: Y(50), class: "guide" });
+    el(s, "line", { x1: X(mid), x2: X(mid), y1: Y(50), y2: Y(0), class: "guide" });
+    el(s, "text", { x: X(mid), y: H - m.b + 18, "text-anchor": "middle", class: "lbl" }).textContent = "LD50";
+    el(s, "text", { x: X(1), y: H - 8, "text-anchor": "end", class: "axis-title" }).textContent = "Dose of venom (log scale) →";
+    el(s, "text", { x: 14, y: (m.t + H - m.b) / 2, "text-anchor": "middle", class: "axis-title", transform: "rotate(-90 14 " + (m.t + H - m.b) / 2 + ")" }).textContent = "Mice that died";
+  })();
+
+  // Generic log ruler
+  function ruler(id, opt) {
+    var s = document.getElementById(id), W = 900, H = opt.H, m = { l: 24, r: 24, t: 44, b: 40 };
+    var lo = Math.log10(opt.lo), hi = Math.log10(opt.hi);
+    var X = function (v) { return m.l + (Math.log10(v) - lo) / (hi - lo) * (W - m.l - m.r); };
+    var base = H - m.b;
+    if (opt.band) {
+      el(s, "rect", { x: X(opt.band[0]), y: m.t - 8, width: X(opt.band[1]) - X(opt.band[0]), height: base - m.t + 8, class: "anch" });
+      el(s, "text", { x: X(opt.band[0]), y: H - 4, class: "anch-t" }).textContent = opt.bandLabel;
+    }
+    opt.ticks.forEach(function (v) {
+      el(s, "line", { x1: X(v), x2: X(v), y1: m.t - 8, y2: base, class: "gridline" });
+      el(s, "text", { x: X(v), y: base + 18, "text-anchor": "middle", class: "tick" }).textContent = v >= 1 ? v.toLocaleString() : v;
+    });
+    el(s, "text", { x: W - m.r, y: H - 4, "text-anchor": "end", class: "axis-title" }).textContent = opt.axis;
+    var pts = SPECIES.filter(function (d) { return typeof opt.val(d) === "number"; }).sort(function (a, b) { return opt.val(a) - opt.val(b); });
+    var bins = {};
+    pts.forEach(function (d) {
+      var v = opt.val(d), cx = X(v), key = Math.round(cx / 9), n = bins[key] = (bins[key] || 0) + 1;
+      var cy = base - 8 - (n - 1) * 10, solid = opt.solid(d);
+      var c = el(s, "circle", { cx: cx, cy: cy, r: 4.2, class: "rdot", tabindex: 0,
+        fill: solid ? "var(--ink-2)" : "var(--surface)", stroke: solid ? "var(--surface)" : "var(--ink-2)", "stroke-width": solid ? 1 : 1.6,
+        "aria-label": d.common + ", " + opt.tip(d) });
+      function on(e) {
+        var r = e.clientX != null ? { x: e.clientX, y: e.clientY } : (function () { var b = c.getBoundingClientRect(); return { x: b.left, y: b.top }; })();
+        showTip("<b>" + d.common + "</b><br><i>" + d.sci + "</i><br>" + opt.tip(d), r.x, r.y);
+      }
+      c.addEventListener("mousemove", on); c.addEventListener("focus", on);
+      c.addEventListener("mouseleave", hideTip); c.addEventListener("blur", hideTip);
+    });
+    opt.labels.forEach(function (l) {
+      var d = byName(l[0]); if (!d) return;
+      var x = X(opt.val(d)), y = 22 + l[2] * 14;
+      el(s, "line", { x1: x, x2: x, y1: y + 4, y2: base - 14, stroke: "var(--muted)", "stroke-width": 1, "stroke-dasharray": "2 3" });
+      el(s, "text", { x: x, y: y, "text-anchor": x > W - 140 ? "end" : (x < 120 ? "start" : "middle"), class: "lbl" }).textContent = l[1] + " " + opt.val(d).toLocaleString();
+    });
+  }
+  ruler("ruler", { H: 250, lo: 0.01, hi: 1000, ticks: [0.01, 0.1, 1, 10, 100, 1000], band: [ANCHORS.ldMost, ANCHORS.ldLeast],
+    bandLabel: "Shaded: scored range, 0.039 to 9.27 mg/kg", axis: "LD50, mg/kg (log scale)",
+    val: function (d) { return d.ld50; }, solid: function (d) { return d.route === "SC"; },
+    tip: function (d) { return d.ld50 + " mg/kg · " + d.route + " · grade " + d.ldTier; },
+    labels: [["Oxyuranus microlepidotus", "Inland taipan", 0], ["Daboia russelii", "Russell’s viper", 1], ["Agkistrodon contortrix", "Copperhead (US)", 0], ["Demansia olivacea", "Olive whip snake", 0]] });
+  ruler("yruler", { H: 230, lo: 0.5, hi: 2000, ticks: [1, 10, 100, 1000], axis: "Maximum venom yield, mg dry (log scale)",
+    val: function (d) { return d.yieldMax; }, solid: function () { return true; },
+    tip: function (d) { return "up to " + d.yieldMax + " mg · grade " + d.yTier; },
+    labels: [["Aipysurus duboisii", "Dubois’ sea snake", 0], ["Oxyuranus microlepidotus", "Inland taipan", 1], ["Daboia russelii", "Russell’s viper", 0], ["Naja melanoleuca", "Forest cobra", 1]] });
+
+  // Why both matter
+  document.getElementById("versus").innerHTML = [["Oxyuranus microlepidotus", "Extremely toxic venom, in modest amounts"], ["Naja melanoleuca", "Less toxic venom, in the largest amounts on record"]].map(function (p) {
+    var d = byName(p[0]);
+    function row(label, v, cls) { return '<div class="row"><span>' + label + '</span><div class="track"><div class="fill ' + (cls || "") + '" style="width:' + v + '%"></div></div><span class="num">' + fmt(v) + "</span></div>"; }
+    return '<div class="vs"><div><h3 style="font-size:1.1rem">' + d.common + '</h3><span style="font-size:0.88rem;color:var(--ink-2)">' + p[1] + "</span></div>" +
+      row("Potency", d.pot) + row("Quantity", d.qty) + row("Venom Hazard", d.vh, "total") +
+      '<span class="caption">LD50 ' + d.ld50 + " mg/kg · maximum yield " + d.yieldMax.toLocaleString() + " mg</span></div>";
+  }).join("");
+
+  // Human Risk weights
+  var w = [["Encounter", 25], ["Bite propensity", 15], ["Onset", 15], ["Antivenom access", 10]], tot = 65;
+  document.getElementById("weights").innerHTML = w.map(function (x) {
+    return '<div class="row"><span>' + x[0] + '</span><div class="track"><div class="fill" style="width:' + (x[1] / 25 * 100) + '%"></div></div><span class="num">' + Math.round(x[1] / tot * 100) + "%</span></div>";
+  }).join("");
+
+  // Hook-nosed sea snake
+  (function () {
+    var s = document.getElementById("hs"), W = 560, H = 150, m = { l: 24, r: 24 };
+    var lo = Math.log10(0.01), hi = Math.log10(0.3);
+    var X = function (v) { return m.l + (Math.log10(v) - lo) / (hi - lo) * (W - m.l - m.r); };
+    var base = 96;
+    el(s, "line", { x1: X(0.01), x2: X(0.3), y1: base, y2: base, stroke: "var(--ink-2)", "stroke-width": 1 });
+    [0.01, 0.03, 0.1, 0.3].forEach(function (v) {
+      el(s, "line", { x1: X(v), x2: X(v), y1: base - 4, y2: base + 4, stroke: "var(--ink-2)" });
+      el(s, "text", { x: X(v), y: base + 20, "text-anchor": "middle", class: "tick" }).textContent = v;
+    });
+    el(s, "text", { x: W - m.r, y: H - 6, "text-anchor": "end", class: "axis-title" }).textContent = "LD50, mg/kg (log scale)";
+    [[0.02, "D", "0.02 · origin untraced", 0], [0.1125, "D", "0.1125 · route unknown", 1], [0.164, "A", "0.164 · Broad et al. 1979, SC", 0]].forEach(function (f) {
+      var x = X(f[0]);
+      el(s, "circle", { cx: x, cy: base, r: 7, fill: f[1] === "A" ? "var(--accent)" : "var(--surface)", stroke: f[1] === "A" ? "var(--surface)" : "var(--alert)", "stroke-width": 2 });
+      var ty = f[3] ? 54 : 34;
+      el(s, "line", { x1: x, x2: x, y1: ty + 4, y2: base - 9, stroke: "var(--muted)", "stroke-dasharray": "2 3" });
+      el(s, "text", { x: x, y: ty, "text-anchor": x > W - 160 ? "end" : (x < 100 ? "start" : "middle"), class: "lbl" }).textContent = f[2] + " (grade " + f[1] + ")";
+    });
+  })();
+})();
+</script>
+</body>
+</html>
