@@ -1,6 +1,12 @@
 {
  "Daboia russelii": {
-  "file": null
+  "status": "ok",
+  "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/53030899/large.jpeg",
+  "licence": "cc-by",
+  "attribution": "(c) Mittal Gala, some rights reserved (CC BY)",
+  "page": "https://www.inaturalist.org/photos/53030899",
+  "override": true,
+  "file": "daboia-russelii.jpg"
  },
  "Bitis gabonica": {
   "status": "ok",
@@ -19,7 +25,17 @@
   "file": "oxyuranus-scutellatus.jpg"
  },
  "Hydrophis schistosus": {
-  "file": null
+  "status": "ok",
+  "inat_name": "Hydrophis schistosus",
+  "taxon_id": 318698,
+  "photo_id": 17630616,
+  "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/17630616/large.jpg",
+  "licence": "cc-by",
+  "attribution": "(c) Shaunak Modi, some rights reserved (CC BY)",
+  "page": "https://www.inaturalist.org/photos/17630616",
+  "source": "research-grade observation",
+  "observation": "https://www.inaturalist.org/observations/12261061",
+  "file": "hydrophis-schistosus.jpg"
  },
  "Oxyuranus microlepidotus": {
   "status": "ok",
@@ -46,10 +62,30 @@
   "file": "dendroaspis-polylepis.jpg"
  },
  "Naja haje": {
-  "file": null
+  "status": "ok",
+  "inat_name": "Naja haje",
+  "taxon_id": 30479,
+  "photo_id": 455450455,
+  "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/455450455/large.jpeg",
+  "licence": "cc-by",
+  "attribution": "(c) Samuel GUIRAUDOU, some rights reserved (CC BY)",
+  "page": "https://www.inaturalist.org/photos/455450455",
+  "source": "research-grade observation",
+  "observation": "https://www.inaturalist.org/observations/254290187",
+  "file": "naja-haje.jpg"
  },
  "Notechis scutatus": {
-  "file": null
+  "status": "ok",
+  "inat_name": "Notechis scutatus",
+  "taxon_id": 35178,
+  "photo_id": 127663785,
+  "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/127663785/large.jpeg",
+  "licence": "cc-by",
+  "attribution": "(c) Bruce Deagle, some rights reserved (CC BY)",
+  "page": "https://www.inaturalist.org/photos/127663785",
+  "source": "research-grade observation",
+  "observation": "https://www.inaturalist.org/observations/78322290",
+  "file": "notechis-scutatus.jpg"
  },
  "Pseudonaja textilis": {
   "status": "ok",
@@ -60,16 +96,46 @@
   "file": "pseudonaja-textilis.jpg"
  },
  "Naja oxiana": {
-  "file": null
+  "status": "ok",
+  "inat_name": "Naja oxiana",
+  "taxon_id": 30485,
+  "photo_id": 743043047,
+  "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/743043047/large.jpg",
+  "licence": "cc-by-sa",
+  "attribution": "(c) Frank Z, some rights reserved (CC BY-SA)",
+  "page": "https://www.inaturalist.org/photos/743043047",
+  "source": "research-grade observation",
+  "observation": "https://www.inaturalist.org/observations/404601780",
+  "file": "naja-oxiana.jpg"
  },
  "Crotalus scutulatus": {
-  "file": null
+  "status": "ok",
+  "inat_name": "Crotalus scutulatus",
+  "taxon_id": 30719,
+  "photo_id": 288612363,
+  "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/288612363/large.jpeg",
+  "licence": "cc0",
+  "attribution": "no rights reserved",
+  "page": "https://www.inaturalist.org/photos/288612363",
+  "source": "research-grade observation",
+  "observation": "https://www.inaturalist.org/observations/166656106",
+  "file": "crotalus-scutulatus.jpg"
  },
  "Naja philippinensis": {
-  "file": null
+  "status": "no photo (override)"
  },
  "Crotalus adamanteus": {
-  "file": null
+  "status": "ok",
+  "inat_name": "Crotalus adamanteus",
+  "taxon_id": 53491,
+  "photo_id": 88475195,
+  "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/88475195/large.jpg",
+  "licence": "cc-by",
+  "attribution": "(c) evangrimes, some rights reserved (CC BY)",
+  "page": "https://www.inaturalist.org/photos/88475195",
+  "source": "research-grade observation",
+  "observation": "https://www.inaturalist.org/observations/55558483",
+  "file": "crotalus-adamanteus.jpg"
  },
  "Bothrops jararacussu": {
   "status": "ok",
@@ -80,10 +146,30 @@
   "file": "bothrops-jararacussu.jpg"
  },
  "Crotalus durissus": {
-  "file": null
+  "status": "ok",
+  "inat_name": "Crotalus durissus",
+  "taxon_id": 30693,
+  "photo_id": 322908688,
+  "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/322908688/large.jpg",
+  "licence": "cc-by",
+  "attribution": "(c) Salomão Janderson Ferreira Bispo, some rights reserved (CC BY)",
+  "page": "https://www.inaturalist.org/photos/322908688",
+  "source": "research-grade observation",
+  "observation": "https://www.inaturalist.org/observations/184945615",
+  "file": "crotalus-durissus.jpg"
  },
  "Ophiophagus hannah": {
-  "file": null
+  "status": "ok",
+  "inat_name": "Ophiophagus hannah",
+  "taxon_id": 30472,
+  "photo_id": 575960444,
+  "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/575960444/large.jpg",
+  "licence": "cc-by",
+  "attribution": "(c) Tandin Wangdi, some rights reserved (CC BY)",
+  "page": "https://www.inaturalist.org/photos/575960444",
+  "source": "research-grade observation",
+  "observation": "https://www.inaturalist.org/observations/318667712",
+  "file": "ophiophagus-hannah.jpg"
  },
  "Naja naja": {
   "status": "ok",
@@ -94,7 +180,17 @@
   "file": "naja-naja.jpg"
  },
  "Echis carinatus": {
-  "file": null
+  "status": "ok",
+  "inat_name": "Echis carinatus",
+  "taxon_id": 31079,
+  "photo_id": 322786476,
+  "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/322786476/large.jpeg",
+  "licence": "cc-by",
+  "attribution": "(c) @dineshphotography7797, some rights reserved (CC BY)",
+  "page": "https://www.inaturalist.org/photos/322786476",
+  "source": "research-grade observation",
+  "observation": "https://www.inaturalist.org/observations/184883202",
+  "file": "echis-carinatus.jpg"
  },
  "Cerastes cerastes": {
   "status": "ok",
@@ -105,13 +201,39 @@
   "file": "cerastes-cerastes.jpg"
  },
  "Acanthophis antarcticus": {
-  "file": null
+  "status": "ok",
+  "inat_name": "Acanthophis antarcticus",
+  "taxon_id": 35060,
+  "photo_id": 114523840,
+  "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/114523840/large.jpeg",
+  "licence": "cc0",
+  "attribution": "no rights reserved",
+  "page": "https://www.inaturalist.org/photos/114523840",
+  "source": "research-grade observation",
+  "observation": "https://www.inaturalist.org/observations/70444298",
+  "file": "acanthophis-antarcticus.jpg"
  },
  "Bitis nasicornis": {
-  "file": null
+  "status": "ok",
+  "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/395167898/large.jpeg",
+  "licence": "cc0",
+  "attribution": "no rights reserved",
+  "page": "https://www.inaturalist.org/photos/395167898",
+  "override": true,
+  "file": "bitis-nasicornis.jpg"
  },
  "Bothrops asper": {
-  "file": null
+  "status": "ok",
+  "inat_name": "Bothrops asper",
+  "taxon_id": 30798,
+  "photo_id": 600300091,
+  "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/600300091/large.jpg",
+  "licence": "cc-by",
+  "attribution": "(c) Ricard Busquets Reverte, some rights reserved (CC BY)",
+  "page": "https://www.inaturalist.org/photos/600300091",
+  "source": "research-grade observation",
+  "observation": "https://www.inaturalist.org/observations/330973273",
+  "file": "bothrops-asper.jpg"
  },
  "Crotalus atrox": {
   "status": "ok",
@@ -122,7 +244,13 @@
   "file": "crotalus-atrox.jpg"
  },
  "Crotalus oreganus": {
-  "file": null
+  "status": "ok",
+  "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/96125075/large.jpg",
+  "licence": "cc-by-sa",
+  "attribution": "(c) Yan Davidovich, some rights reserved (CC BY-SA)",
+  "page": "https://www.inaturalist.org/photos/96125075",
+  "override": true,
+  "file": "crotalus-oreganus.jpg"
  },
  "Macrovipera lebetina": {
   "status": "ok",
@@ -141,13 +269,39 @@
   "file": "bungarus-caeruleus.jpg"
  },
  "Crotalus tigris": {
-  "file": null
+  "status": "ok",
+  "inat_name": "Crotalus tigris",
+  "taxon_id": 30758,
+  "photo_id": 65515231,
+  "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/65515231/large.jpg",
+  "licence": "cc-by",
+  "attribution": "(c) Cole Wolf, some rights reserved (CC BY)",
+  "page": "https://www.inaturalist.org/photos/65515231",
+  "source": "research-grade observation",
+  "observation": "https://www.inaturalist.org/observations/41305923",
+  "file": "crotalus-tigris.jpg"
  },
  "Vipera berus": {
-  "file": null
+  "status": "ok",
+  "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/71599307/large.jpg",
+  "licence": "cc-by",
+  "attribution": "(c) Josip Skejo, some rights reserved (CC BY)",
+  "page": "https://www.inaturalist.org/photos/71599307",
+  "override": true,
+  "file": "vipera-berus.jpg"
  },
  "Crotalus horridus": {
-  "file": null
+  "status": "ok",
+  "inat_name": "Crotalus horridus",
+  "taxon_id": 30746,
+  "photo_id": 218050793,
+  "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/218050793/large.jpeg",
+  "licence": "cc0",
+  "attribution": "no rights reserved",
+  "page": "https://www.inaturalist.org/photos/218050793",
+  "source": "research-grade observation",
+  "observation": "https://www.inaturalist.org/observations/128376186",
+  "file": "crotalus-horridus.jpg"
  },
  "Tropidolaemus wagleri": {
   "status": "ok",
@@ -158,10 +312,30 @@
   "file": "tropidolaemus-wagleri.jpg"
  },
  "Agkistrodon bilineatus": {
-  "file": null
+  "status": "ok",
+  "inat_name": "Agkistrodon bilineatus",
+  "taxon_id": 534187,
+  "photo_id": 490332767,
+  "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/490332767/large.jpeg",
+  "licence": "cc-by",
+  "attribution": "(c) Sinead Gómez, some rights reserved (CC BY)",
+  "page": "https://www.inaturalist.org/photos/490332767",
+  "source": "research-grade observation",
+  "observation": "https://www.inaturalist.org/observations/272543259",
+  "file": "agkistrodon-bilineatus.jpg"
  },
  "Dispholidus typus": {
-  "file": null
+  "status": "ok",
+  "inat_name": "Dispholidus typus",
+  "taxon_id": 30358,
+  "photo_id": 106831834,
+  "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/106831834/large.jpeg",
+  "licence": "cc0",
+  "attribution": "no rights reserved",
+  "page": "https://www.inaturalist.org/photos/106831834",
+  "source": "research-grade observation",
+  "observation": "https://www.inaturalist.org/observations/66290402",
+  "file": "dispholidus-typus.jpg"
  },
  "Pseudechis porphyriacus": {
   "status": "ok",
@@ -172,183 +346,698 @@
   "file": "pseudechis-porphyriacus.jpg"
  },
  "Bungarus fasciatus": {
-  "file": null
+  "status": "ok",
+  "inat_name": "Bungarus fasciatus",
+  "taxon_id": 30448,
+  "photo_id": 573100257,
+  "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/573100257/large.jpg",
+  "licence": "cc-by",
+  "attribution": "(c) Ankur Nandi, some rights reserved (CC BY)",
+  "page": "https://www.inaturalist.org/photos/573100257",
+  "source": "research-grade observation",
+  "observation": "https://www.inaturalist.org/observations/317170137",
+  "file": "bungarus-fasciatus.jpg"
  },
  "Montivipera xanthina": {
-  "file": null
+  "status": "ok",
+  "inat_name": "Montivipera xanthina",
+  "taxon_id": 73874,
+  "photo_id": 305257250,
+  "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/305257250/large.jpg",
+  "licence": "cc-by",
+  "attribution": "(c) Balkan Mega, some rights reserved (CC BY)",
+  "page": "https://www.inaturalist.org/photos/305257250",
+  "source": "research-grade observation",
+  "observation": "https://www.inaturalist.org/observations/175634355",
+  "file": "montivipera-xanthina.jpg"
  },
  "Agkistrodon piscivorus": {
-  "file": null
+  "status": "ok",
+  "inat_name": "Agkistrodon piscivorus",
+  "taxon_id": 904170,
+  "photo_id": 74336248,
+  "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/74336248/large.jpg",
+  "licence": "cc-by",
+  "attribution": "(c) kirk gardner, some rights reserved (CC BY), uploaded by kirk gardner",
+  "page": "https://www.inaturalist.org/photos/74336248",
+  "source": "taxon",
+  "file": "agkistrodon-piscivorus.jpg"
  },
  "Bothrops jararaca": {
-  "file": null
+  "status": "ok",
+  "inat_name": "Bothrops jararaca",
+  "taxon_id": 539050,
+  "photo_id": 570748879,
+  "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/570748879/large.jpg",
+  "licence": "cc-by",
+  "attribution": "(c) Ibere Machado, some rights reserved (CC BY)",
+  "page": "https://www.inaturalist.org/photos/570748879",
+  "source": "research-grade observation",
+  "observation": "https://www.inaturalist.org/observations/315925096",
+  "file": "bothrops-jararaca.jpg"
  },
  "Hydrophis platurus": {
-  "file": null
+  "status": "ok",
+  "inat_name": "Hydrophis platurus",
+  "taxon_id": 35164,
+  "photo_id": 339304315,
+  "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/339304315/large.jpg",
+  "licence": "cc-by",
+  "attribution": "(c) Aloaiza, some rights reserved (CC BY)",
+  "page": "https://www.inaturalist.org/photos/339304315",
+  "source": "taxon",
+  "file": "hydrophis-platurus.jpg"
  },
  "Bothrops picadoi": {
-  "file": null
+  "status": "ok",
+  "inat_name": "Atropoides picadoi",
+  "taxon_id": 30870,
+  "photo_id": 313223445,
+  "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/313223445/large.jpeg",
+  "licence": "cc-by",
+  "attribution": "(c) Roger A. Morales-Flores, some rights reserved (CC BY), uploaded by Roger A. Morales-Flores",
+  "page": "https://www.inaturalist.org/photos/313223445",
+  "source": "taxon",
+  "file": "bothrops-picadoi.jpg"
  },
  "Bothrops alternatus": {
-  "file": null
+  "status": "ok",
+  "inat_name": "Bothrops alternatus",
+  "taxon_id": 539037,
+  "photo_id": 31356569,
+  "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/31356569/large.jpg",
+  "licence": "cc-by",
+  "attribution": "(c) K. Zyskowski & Y. Bereshpolova, some rights reserved (CC BY), uploaded by K. Zyskowski & Y. Bereshpolova",
+  "page": "https://www.inaturalist.org/photos/31356569",
+  "source": "taxon",
+  "file": "bothrops-alternatus.jpg"
  },
  "Calloselasma rhodostoma": {
-  "file": null
+  "status": "ok",
+  "inat_name": "Calloselasma rhodostoma",
+  "taxon_id": 30825,
+  "photo_id": 54423754,
+  "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/54423754/large.jpg",
+  "licence": "cc-by",
+  "attribution": "(c) Gerard Chartier, some rights reserved (CC BY)",
+  "page": "https://www.inaturalist.org/photos/54423754",
+  "source": "taxon",
+  "file": "calloselasma-rhodostoma.jpg"
  },
  "Micrurus frontalis": {
-  "file": null
+  "status": "ok",
+  "inat_name": "Micrurus frontalis",
+  "taxon_id": 30564,
+  "photo_id": 65607875,
+  "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/65607875/large.jpg",
+  "licence": "cc-by-sa",
+  "attribution": "(c) William Quatman, alguns direitos reservados (CC BY-SA)",
+  "page": "https://www.inaturalist.org/photos/65607875",
+  "source": "taxon",
+  "file": "micrurus-frontalis.jpg"
  },
  "Micrurus fulvius": {
-  "file": null
+  "status": "ok",
+  "inat_name": "Micrurus fulvius",
+  "taxon_id": 73867,
+  "photo_id": 286627672,
+  "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/286627672/large.jpg",
+  "licence": "cc0",
+  "attribution": "no rights reserved, uploaded by Daniel Estabrooks",
+  "page": "https://www.inaturalist.org/photos/286627672",
+  "source": "taxon",
+  "file": "micrurus-fulvius.jpg"
  },
  "Metlapilcoatlus nummifer": {
-  "file": null
+  "status": "ok",
+  "inat_name": "Metlapilcoatlus nummifer",
+  "taxon_id": 1119917,
+  "photo_id": 67544067,
+  "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/67544067/large.jpg",
+  "licence": "cc-by",
+  "attribution": "(c) Kristof Zyskowski, some rights reserved (CC BY), uploaded by Kristof Zyskowski",
+  "page": "https://www.inaturalist.org/photos/67544067",
+  "source": "taxon",
+  "file": "metlapilcoatlus-nummifer.jpg"
  },
  "Hydrophis hardwickii": {
+  "status": "no photo with an allowed licence",
+  "inat_name": "Hydrophis hardwickii",
+  "taxon_id": 200388,
   "file": null
  },
  "Crotalus cerastes": {
-  "file": null
+  "status": "ok",
+  "inat_name": "Crotalus cerastes",
+  "taxon_id": 30751,
+  "photo_id": 20345718,
+  "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/20345718/large.jpg",
+  "licence": "cc-by",
+  "attribution": "(c) Ken-ichi Ueda, some rights reserved (CC BY)",
+  "page": "https://www.inaturalist.org/photos/20345718",
+  "source": "research-grade observation",
+  "observation": "https://www.inaturalist.org/observations/13795068",
+  "file": "crotalus-cerastes.jpg"
  },
  "Aipysurus duboisii": {
-  "file": null
+  "status": "ok",
+  "inat_name": "Aipysurus duboisii",
+  "taxon_id": 35263,
+  "photo_id": 603094471,
+  "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/603094471/large.jpg",
+  "licence": "cc-by",
+  "attribution": "(c) rcrofts, some rights reserved (CC BY)",
+  "page": "https://www.inaturalist.org/photos/603094471",
+  "source": "research-grade observation",
+  "observation": "https://www.inaturalist.org/observations/332331145",
+  "file": "aipysurus-duboisii.jpg"
  },
  "Causus rhombeatus": {
-  "file": null
+  "status": "ok",
+  "inat_name": "Causus rhombeatus",
+  "taxon_id": 30820,
+  "photo_id": 142964998,
+  "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/142964998/large.jpeg",
+  "licence": "cc-by",
+  "attribution": "(c) Shaun Swanepoel, some rights reserved (CC BY)",
+  "page": "https://www.inaturalist.org/photos/142964998",
+  "source": "research-grade observation",
+  "observation": "https://www.inaturalist.org/observations/86752350",
+  "file": "causus-rhombeatus.jpg"
  },
  "Bothriechis schlegelii": {
-  "file": null
+  "status": "ok",
+  "inat_name": "Bothriechis schlegelii",
+  "taxon_id": 30844,
+  "photo_id": 84758579,
+  "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/84758579/large.jpeg",
+  "licence": "cc-by",
+  "attribution": "(c) Daniel Mesa, some rights reserved (CC BY)",
+  "page": "https://www.inaturalist.org/photos/84758579",
+  "source": "research-grade observation",
+  "observation": "https://www.inaturalist.org/observations/53295614",
+  "file": "bothriechis-schlegelii.jpg"
  },
  "Bungarus candidus": {
-  "file": null
+  "status": "ok",
+  "inat_name": "Bungarus candidus",
+  "taxon_id": 96225,
+  "photo_id": 675769611,
+  "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/675769611/large.jpg",
+  "licence": "cc-by",
+  "attribution": "(c) James Hunt, some rights reserved (CC BY)",
+  "page": "https://www.inaturalist.org/photos/675769611",
+  "source": "research-grade observation",
+  "observation": "https://www.inaturalist.org/observations/369930530",
+  "file": "bungarus-candidus.jpg"
  },
  "Naja melanoleuca": {
-  "file": null
+  "status": "ok",
+  "inat_name": "Naja melanoleuca",
+  "taxon_id": 30489,
+  "photo_id": 107403527,
+  "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/107403527/large.jpg",
+  "licence": "cc-by",
+  "attribution": "(c) schizoform, some rights reserved (CC BY)",
+  "page": "https://www.inaturalist.org/photos/107403527",
+  "source": "taxon",
+  "file": "naja-melanoleuca.jpg"
  },
  "Dendroaspis angusticeps": {
-  "file": null
+  "status": "ok",
+  "inat_name": "Dendroaspis angusticeps",
+  "taxon_id": 30411,
+  "photo_id": 2556129,
+  "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/2556129/large.jpg",
+  "licence": "cc-by",
+  "attribution": "(c) Dick Culbert, some rights reserved (CC BY)",
+  "page": "https://www.inaturalist.org/photos/2556129",
+  "source": "taxon",
+  "file": "dendroaspis-angusticeps.jpg"
  },
  "Hemachatus haemachatus": {
-  "file": null
+  "status": "ok",
+  "inat_name": "Hemachatus haemachatus",
+  "taxon_id": 30652,
+  "photo_id": 14362467,
+  "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/14362467/large.jpg",
+  "licence": "cc-by-sa",
+  "attribution": "(c) Andrew Hankey, some rights reserved (CC BY-SA)",
+  "page": "https://www.inaturalist.org/photos/14362467",
+  "source": "research-grade observation",
+  "observation": "https://www.inaturalist.org/observations/10354429",
+  "file": "hemachatus-haemachatus.jpg"
  },
  "Naja nigricollis": {
-  "file": null
+  "status": "ok",
+  "inat_name": "Naja nigricollis",
+  "taxon_id": 30476,
+  "photo_id": 1501670,
+  "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/1501670/large.jpg",
+  "licence": "cc-by",
+  "attribution": "(c) Nigel Voaden, some rights reserved (CC BY)",
+  "page": "https://www.inaturalist.org/photos/1501670",
+  "source": "taxon",
+  "file": "naja-nigricollis.jpg"
  },
  "Austrelaps superbus": {
-  "file": null
+  "status": "ok",
+  "inat_name": "Austrelaps superbus",
+  "taxon_id": 94946,
+  "photo_id": 299730325,
+  "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/299730325/large.jpeg",
+  "licence": "cc0",
+  "attribution": "no rights reserved, uploaded by Max Tibby",
+  "page": "https://www.inaturalist.org/photos/299730325",
+  "source": "taxon",
+  "file": "austrelaps-superbus.jpg"
  },
  "Sistrurus miliarius": {
-  "file": null
+  "status": "ok",
+  "inat_name": "Sistrurus miliarius",
+  "taxon_id": 30983,
+  "photo_id": 137665709,
+  "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/137665709/large.jpg",
+  "licence": "cc-by",
+  "attribution": "(c) Court Harding, some rights reserved (CC BY)",
+  "page": "https://www.inaturalist.org/photos/137665709",
+  "source": "research-grade observation",
+  "observation": "https://www.inaturalist.org/observations/83802987",
+  "file": "sistrurus-miliarius.jpg"
  },
  "Agkistrodon contortrix": {
-  "file": null
+  "status": "ok",
+  "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/242284249/large.jpg",
+  "licence": "cc-by",
+  "attribution": "(c) Alan Rockefeller, some rights reserved (CC BY)",
+  "page": "https://www.inaturalist.org/photos/242284249",
+  "override": true,
+  "file": "agkistrodon-contortrix.jpg"
  },
  "Crotalus ruber": {
-  "file": null
+  "status": "ok",
+  "inat_name": "Crotalus ruber",
+  "taxon_id": 30724,
+  "photo_id": 280131097,
+  "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/280131097/large.jpg",
+  "licence": "cc-by",
+  "attribution": "(c) MarvalPhotography19, some rights reserved (CC BY)",
+  "page": "https://www.inaturalist.org/photos/280131097",
+  "source": "research-grade observation",
+  "observation": "https://www.inaturalist.org/observations/162035115",
+  "file": "crotalus-ruber.jpg"
  },
  "Crotalus lepidus": {
-  "file": null
+  "status": "ok",
+  "inat_name": "Crotalus lepidus",
+  "taxon_id": 30740,
+  "photo_id": 328049468,
+  "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/328049468/large.jpeg",
+  "licence": "cc-by",
+  "attribution": "(c) Jake Nitta, some rights reserved (CC BY)",
+  "page": "https://www.inaturalist.org/photos/328049468",
+  "source": "research-grade observation",
+  "observation": "https://www.inaturalist.org/observations/187580465",
+  "file": "crotalus-lepidus.jpg"
  },
  "Lachesis muta": {
-  "file": null
+  "status": "ok",
+  "inat_name": "Lachesis muta",
+  "taxon_id": 73840,
+  "photo_id": 434107226,
+  "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/434107226/large.jpeg",
+  "licence": "cc-by",
+  "attribution": "(c) Leonel Roget, some rights reserved (CC BY)",
+  "page": "https://www.inaturalist.org/photos/434107226",
+  "source": "research-grade observation",
+  "observation": "https://www.inaturalist.org/observations/243455330",
+  "file": "lachesis-muta.jpg"
  },
  "Hydrophis cyanocinctus": {
-  "file": null
+  "status": "ok",
+  "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/547216625/large.jpg",
+  "licence": "cc0",
+  "attribution": "no rights reserved",
+  "page": "https://www.inaturalist.org/photos/547216625",
+  "override": true,
+  "file": "hydrophis-cyanocinctus.jpg"
  },
  "Hydrophis elegans": {
-  "file": null
+  "status": "ok",
+  "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/254657521/large.jpeg",
+  "licence": "cc0",
+  "attribution": "no rights reserved",
+  "page": "https://www.inaturalist.org/photos/254657521",
+  "override": true,
+  "file": "hydrophis-elegans.jpg"
  },
  "Aipysurus laevis": {
-  "file": null
+  "status": "ok",
+  "inat_name": "Aipysurus laevis",
+  "taxon_id": 35260,
+  "photo_id": 9059877,
+  "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/9059877/large.jpg",
+  "licence": "cc-by",
+  "attribution": "(c) John Barkla, some rights reserved (CC BY)",
+  "page": "https://www.inaturalist.org/photos/9059877",
+  "source": "research-grade observation",
+  "observation": "https://www.inaturalist.org/observations/7057741",
+  "file": "aipysurus-laevis.jpg"
  },
  "Trimeresurus albolabris": {
-  "file": null
+  "status": "ok",
+  "inat_name": "Trimeresurus albolabris",
+  "taxon_id": 146506,
+  "photo_id": 360252646,
+  "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/360252646/large.jpg",
+  "licence": "cc-by",
+  "attribution": "(c) Lawrence Hylton, some rights reserved (CC BY)",
+  "page": "https://www.inaturalist.org/photos/360252646",
+  "source": "research-grade observation",
+  "observation": "https://www.inaturalist.org/observations/203865289",
+  "file": "trimeresurus-albolabris.jpg"
  },
  "Gloydius blomhoffii": {
-  "file": null
+  "status": "ok",
+  "inat_name": "Gloydius blomhoffii",
+  "taxon_id": 31071,
+  "photo_id": 57780203,
+  "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/57780203/large.jpeg",
+  "licence": "cc-by-sa",
+  "attribution": "(c) Alpsdake, some rights reserved (CC BY-SA)",
+  "page": "https://www.inaturalist.org/photos/57780203",
+  "source": "taxon",
+  "file": "gloydius-blomhoffii.jpg"
  },
  "Pseudonaja guttata": {
-  "file": null
+  "status": "ok",
+  "inat_name": "Pseudonaja guttata",
+  "taxon_id": 35146,
+  "photo_id": 89006004,
+  "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/89006004/large.jpg",
+  "licence": "cc-by",
+  "attribution": "(c) dhfischer, some rights reserved (CC BY), uploaded by dhfischer",
+  "page": "https://www.inaturalist.org/photos/89006004",
+  "source": "taxon",
+  "file": "pseudonaja-guttata.jpg"
  },
  "Pseudonaja mengdeni": {
-  "file": null
+  "status": "ok",
+  "inat_name": "Pseudonaja mengdeni",
+  "taxon_id": 111069,
+  "photo_id": 349803917,
+  "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/349803917/large.jpg",
+  "licence": "cc-by-sa",
+  "attribution": "(c) Lachlan Copeland, some rights reserved (CC BY-SA)",
+  "page": "https://www.inaturalist.org/photos/349803917",
+  "source": "research-grade observation",
+  "observation": "https://www.inaturalist.org/observations/198461256",
+  "file": "pseudonaja-mengdeni.jpg"
  },
  "Pseudonaja affinis": {
-  "file": null
+  "status": "ok",
+  "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/576402849/large.jpg",
+  "licence": "cc-by",
+  "attribution": "(c) Hugo Innes, some rights reserved (CC BY)",
+  "page": "https://www.inaturalist.org/photos/576402849",
+  "override": true,
+  "file": "pseudonaja-affinis.jpg"
  },
  "Hoplocephalus stephensii": {
-  "file": null
+  "status": "ok",
+  "inat_name": "Hoplocephalus stephensii",
+  "taxon_id": 35233,
+  "photo_id": 90747412,
+  "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/90747412/large.jpg",
+  "licence": "cc-by",
+  "attribution": "(c) dhfischer, some rights reserved (CC BY), uploaded by dhfischer",
+  "page": "https://www.inaturalist.org/photos/90747412",
+  "source": "taxon",
+  "file": "hoplocephalus-stephensii.jpg"
  },
  "Pseudechis guttatus": {
-  "file": null
+  "status": "ok",
+  "inat_name": "Pseudechis guttatus",
+  "taxon_id": 35159,
+  "photo_id": 482619228,
+  "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/482619228/large.jpeg",
+  "licence": "cc-by",
+  "attribution": "(c) jaimshae, some rights reserved (CC BY)",
+  "page": "https://www.inaturalist.org/photos/482619228",
+  "source": "research-grade observation",
+  "observation": "https://www.inaturalist.org/observations/268489699",
+  "file": "pseudechis-guttatus.jpg"
  },
  "Pseudechis australis": {
-  "file": null
+  "status": "ok",
+  "inat_name": "Pseudechis australis",
+  "taxon_id": 35161,
+  "photo_id": 260646480,
+  "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/260646480/large.jpg",
+  "licence": "cc-by",
+  "attribution": "(c) Belinda Forbes, some rights reserved (CC BY)",
+  "page": "https://www.inaturalist.org/photos/260646480",
+  "source": "research-grade observation",
+  "observation": "https://www.inaturalist.org/observations/151092345",
+  "file": "pseudechis-australis.jpg"
  },
  "Pseudechis colletti": {
+  "status": "no photo with an allowed licence",
+  "inat_name": "Pseudechis colletti",
+  "taxon_id": 35158,
   "file": null
  },
  "Naja atra": {
-  "file": null
+  "status": "ok",
+  "inat_name": "Naja atra",
+  "taxon_id": 30492,
+  "photo_id": 383978942,
+  "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/383978942/large.jpg",
+  "licence": "cc-by",
+  "attribution": "(c) Lawrence Hylton, some rights reserved (CC BY), uploaded by Lawrence Hylton",
+  "page": "https://www.inaturalist.org/photos/383978942",
+  "source": "taxon",
+  "file": "naja-atra.jpg"
  },
  "Naja nivea": {
-  "file": null
+  "status": "ok",
+  "inat_name": "Naja nivea",
+  "taxon_id": 30487,
+  "photo_id": 462881664,
+  "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/462881664/large.jpeg",
+  "licence": "cc-by",
+  "attribution": "(c) Ryan van Huyssteen, some rights reserved (CC BY)",
+  "page": "https://www.inaturalist.org/photos/462881664",
+  "source": "research-grade observation",
+  "observation": "https://www.inaturalist.org/observations/258028284",
+  "file": "naja-nivea.jpg"
  },
  "Naja kaouthia": {
-  "file": null
+  "status": "ok",
+  "inat_name": "Naja kaouthia",
+  "taxon_id": 106447,
+  "photo_id": 469688082,
+  "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/469688082/large.jpg",
+  "licence": "cc-by",
+  "attribution": "(c) Ramit Singal, some rights reserved (CC BY)",
+  "page": "https://www.inaturalist.org/photos/469688082",
+  "source": "research-grade observation",
+  "observation": "https://www.inaturalist.org/observations/261439115",
+  "file": "naja-kaouthia.jpg"
  },
  "Dendroaspis viridis": {
-  "file": null
+  "status": "ok",
+  "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/13139830/large.jpg",
+  "licence": "cc-by",
+  "attribution": "(c) B. Phalan, some rights reserved (CC BY)",
+  "page": "https://www.inaturalist.org/photos/13139830",
+  "override": true,
+  "file": "dendroaspis-viridis.jpg"
  },
  "Oxyuranus temporalis": {
+  "status": "no photo with an allowed licence",
+  "inat_name": "Oxyuranus temporalis",
+  "taxon_id": 108125,
   "file": null
  },
  "Hydrophis peronii": {
+  "status": "no photo with an allowed licence",
+  "inat_name": "Hydrophis peronii",
+  "taxon_id": 200394,
   "file": null
  },
  "Bungarus multicinctus": {
-  "file": null
+  "status": "ok",
+  "inat_name": "Bungarus multicinctus",
+  "taxon_id": 30442,
+  "photo_id": 715994005,
+  "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/715994005/large.jpg",
+  "licence": "cc-by",
+  "attribution": "(c) Yung-Lun Lin, some rights reserved (CC BY)",
+  "page": "https://www.inaturalist.org/photos/715994005",
+  "source": "research-grade observation",
+  "observation": "https://www.inaturalist.org/observations/390793049",
+  "file": "bungarus-multicinctus.jpg"
  },
  "Laticauda semifasciata": {
-  "file": null
+  "status": "ok",
+  "inat_name": "Laticauda semifasciata",
+  "taxon_id": 35237,
+  "photo_id": 19572890,
+  "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/19572890/large.jpg",
+  "licence": "cc-by-sa",
+  "attribution": "(c) anonymous, some rights reserved (CC BY-SA)",
+  "page": "https://www.inaturalist.org/photos/19572890",
+  "source": "taxon",
+  "file": "laticauda-semifasciata.jpg"
  },
  "Hydrophis belcheri": {
-  "file": null
+  "status": "ok",
+  "inat_name": "Hydrophis belcheri",
+  "taxon_id": 35226,
+  "photo_id": 1461087,
+  "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/1461087/large.png",
+  "licence": "cc-by",
+  "attribution": "(c) Rasmussen AR, Murphy JC, Ompi M, Gibbons JW, Uetz P (2011), some rights reserved (CC BY)",
+  "page": "https://www.inaturalist.org/photos/1461087",
+  "source": "taxon",
+  "file": "hydrophis-belcheri.jpg"
  },
  "Thelotornis capensis": {
-  "file": null
+  "status": "ok",
+  "inat_name": "Thelotornis capensis",
+  "taxon_id": 28334,
+  "photo_id": 15216525,
+  "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/15216525/large.jpg",
+  "licence": "cc-by",
+  "attribution": "(c) Wynand Uys, some rights reserved (CC BY), uploaded by Wynand Uys",
+  "page": "https://www.inaturalist.org/photos/15216525",
+  "source": "taxon",
+  "file": "thelotornis-capensis.jpg"
  },
  "Bothrops atrox": {
-  "file": null
+  "status": "ok",
+  "inat_name": "Bothrops atrox",
+  "taxon_id": 49001,
+  "photo_id": 266002611,
+  "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/266002611/large.jpeg",
+  "licence": "cc-by-sa",
+  "attribution": "(c) Alexandre S. Michelotto, some rights reserved (CC BY-SA), uploaded by Alexandre S. Michelotto",
+  "page": "https://www.inaturalist.org/photos/266002611",
+  "source": "taxon",
+  "file": "bothrops-atrox.jpg"
  },
  "Deinagkistrodon acutus": {
-  "file": null
+  "status": "ok",
+  "inat_name": "Deinagkistrodon acutus",
+  "taxon_id": 30685,
+  "photo_id": 323084570,
+  "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/323084570/large.jpg",
+  "licence": "cc-by-sa",
+  "attribution": "(c) vrxz, some rights reserved (CC BY-SA)",
+  "page": "https://www.inaturalist.org/photos/323084570",
+  "source": "research-grade observation",
+  "observation": "https://www.inaturalist.org/observations/185035355",
+  "file": "deinagkistrodon-acutus.jpg"
  },
  "Micrurus nigrocinctus": {
-  "file": null
+  "status": "ok",
+  "inat_name": "Micrurus nigrocinctus",
+  "taxon_id": 30531,
+  "photo_id": 479928387,
+  "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/479928387/large.jpeg",
+  "licence": "cc-by",
+  "attribution": "(c) Evely Lopez, some rights reserved (CC BY)",
+  "page": "https://www.inaturalist.org/photos/479928387",
+  "source": "research-grade observation",
+  "observation": "https://www.inaturalist.org/observations/267084077",
+  "file": "micrurus-nigrocinctus.jpg"
  },
  "Laticauda colubrina": {
-  "file": null
+  "status": "ok",
+  "inat_name": "Laticauda colubrina",
+  "taxon_id": 68343,
+  "photo_id": 404361251,
+  "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/404361251/large.jpg",
+  "licence": "cc-by-sa",
+  "attribution": "(c) Bernard DUPONT, some rights reserved (CC BY-SA)",
+  "page": "https://www.inaturalist.org/photos/404361251",
+  "source": "taxon",
+  "file": "laticauda-colubrina.jpg"
  },
  "Vipera ammodytes": {
-  "file": null
+  "status": "ok",
+  "inat_name": "Vipera ammodytes",
+  "taxon_id": 1701177,
+  "photo_id": 570095431,
+  "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/570095431/large.jpg",
+  "licence": "cc-by",
+  "attribution": "(c) Philip Schaffer, some rights reserved (CC BY)",
+  "page": "https://www.inaturalist.org/photos/570095431",
+  "source": "research-grade observation",
+  "observation": "https://www.inaturalist.org/observations/315579844",
+  "file": "vipera-ammodytes.jpg"
  },
  "Naja annulata": {
-  "file": null
+  "status": "ok",
+  "inat_name": "Naja annulata",
+  "taxon_id": 30456,
+  "photo_id": 2996321,
+  "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/2996321/large.JPG",
+  "licence": "cc-by",
+  "attribution": "(c) John P Friel, some rights reserved (CC BY)",
+  "page": "https://www.inaturalist.org/photos/2996321",
+  "source": "research-grade observation",
+  "observation": "https://www.inaturalist.org/observations/2665277",
+  "file": "naja-annulata.jpg"
  },
  "Crotalus mitchellii": {
-  "file": null
+  "status": "ok",
+  "inat_name": "Crotalus mitchellii",
+  "taxon_id": 605972,
+  "photo_id": 27558916,
+  "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/27558916/large.jpg",
+  "licence": "cc-by",
+  "attribution": "(c) Ken-ichi Ueda, some rights reserved (CC BY), uploaded by Ken-ichi Ueda",
+  "page": "https://www.inaturalist.org/photos/27558916",
+  "source": "taxon",
+  "file": "crotalus-mitchellii.jpg"
  },
  "Pseudechis papuanus": {
+  "status": "no photo with an allowed licence",
+  "inat_name": "Pseudechis papuanus",
+  "taxon_id": 35160,
   "file": null
  },
  "Tropidechis carinatus": {
-  "file": null
+  "status": "ok",
+  "inat_name": "Tropidechis carinatus",
+  "taxon_id": 35083,
+  "photo_id": 251505407,
+  "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/251505407/large.jpg",
+  "licence": "cc-by",
+  "attribution": "(c) Ged Tranter, some rights reserved (CC BY)",
+  "page": "https://www.inaturalist.org/photos/251505407",
+  "source": "research-grade observation",
+  "observation": "https://www.inaturalist.org/observations/146305704",
+  "file": "tropidechis-carinatus.jpg"
  },
  "Cryptophis nigrescens": {
-  "file": null
+  "status": "ok",
+  "inat_name": "Cryptophis nigrescens",
+  "taxon_id": 35134,
+  "photo_id": 153801672,
+  "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/153801672/large.jpg",
+  "licence": "cc-by",
+  "attribution": "(c) dhfischer, some rights reserved (CC BY), uploaded by dhfischer",
+  "page": "https://www.inaturalist.org/photos/153801672",
+  "source": "taxon",
+  "file": "cryptophis-nigrescens.jpg"
  },
  "Demansia olivacea": {
+  "status": "no photo with an allowed licence",
+  "inat_name": "Demansia olivacea",
+  "taxon_id": 35040,
   "file": null
  }
 }

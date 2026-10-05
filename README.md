@@ -39,6 +39,8 @@ Useful options:
 
 The build takes each species' photo from its iNaturalist species page and only uses photos licensed **CC0, CC BY or CC BY-SA**. Non-commercial (NC) and no-derivatives (ND) photos are skipped, so a future paid book link won't cause licence problems. Each photo is credited under the image, with a link back to the photo on iNaturalist.
 
+If a species page has no usable photo, the build falls back to the most-faved **research-grade observation** of that species (its ID has been confirmed by the iNaturalist community), preferring ones annotated as a living animal and skipping captive snakes.
+
 Species without a suitable photo are listed in `photos/missing.txt`. To set a photo by hand, add a row to `photos/overrides.csv`:
 
 ```
@@ -48,7 +50,7 @@ Naja annulata,https://…/large.jpg,"(c) Jane Doe, some rights reserved (CC BY)"
 
 To hide the photo for a species, put `none` in the licence column.
 
-Check a few photos after the first build. iNaturalist's featured photo is usually good, but occasionally shows a juvenile, a similar species or a poor angle.
+**Check the photos after each build that finds new ones.** Open `photos/review.html` in a browser: it shows every species' photo beside its name, with photos picked from observations outlined in orange. A research-grade ID means the species is right, but the picture may still be a juvenile, a shed skin, a road-kill or a poor angle. Block or replace any bad one in `photos/overrides.csv`. `review.html` is not part of the site and isn't uploaded.
 
 ## Publishing to Cloudflare Pages
 

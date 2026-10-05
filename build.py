@@ -125,14 +125,32 @@ def find_photo(sci, getter=http_json, pause=1.1):
         return {"status": "no iNaturalist match"}
     full = getter(f"{INAT}/taxa/{match['id']}").get("results", [match])[0]
     time.sleep(pause)
-    p = pick_photo(full)
+    p, source, obs = pick_photo(full), "taxon", None
+    if not p:
+        p, obs = pick_observation_photo(full["id"], getter, pause)
+        source = "research-grade observation"
     if not p:
         return {"status": "no photo with an allowed licence", "inat_name": full.get("name"), "taxon_id": full.get("id")}
     url = p.get("medium_url") or p.get("url")
     url = re.sub(r"/(square|small|medium|thumb)\.", "/large.", url)
     return {"status": "ok", "inat_name": full.get("name"), "taxon_id": full.get("id"), "photo_id": p.get("id"),
             "url": url, "licence": p.get("license_code").lower(), "attribution": p.get("attribution"),
-            "page": f"https://www.inaturalist.org/photos/{p.get('id')}"}
+            "page": f"https://www.inaturalist.org/photos/{p.get('id')}", "source": source,
+            **({"observation": f"https://www.inaturalist.org/observations/{obs}"} if obs else {})}
+
+def pick_observation_photo(taxon_id, getter=http_json, pause=1.1):
+    """Fallback when no curated taxon photo is usable: the most-faved research-grade observation
+    (ID confirmed by the community) with an allowed licence, preferring ones annotated as alive."""
+    base = (f"{INAT}/observations?taxon_id={taxon_id}&quality_grade=research&photos=true&captive=false"
+            f"&photo_license={','.join(sorted(ALLOWED_LICENCES))}&order_by=votes&per_page=20")
+    for extra in ("&term_id=17&term_value_id=18", ""):          # 17/18 = annotation "Alive or Dead: Alive"
+        obs = getter(base + extra).get("results", [])
+        time.sleep(pause)
+        for o in obs:                                              # taxon_id also matches subspecies, which is fine
+            for p in o.get("photos", []) or []:
+                if (p.get("license_code") or "").lower() in ALLOWED_LICENCES and p.get("url"):
+                    return p, o.get("id")
+    return None, None
 
 def load_overrides():
     """photos/overrides.csv: scientific_name,url,attribution,licence,page  (licence: cc0 / cc-by / cc-by-sa, or 'none' to show no photo)"""
@@ -143,7 +161,7 @@ def load_overrides():
 
 def photos(species, fetch, refresh):
     cache_f = PHOTOS / "photos.json"
-    cache = json.loads(cache_f.read_text()) if cache_f.exists() else {}
+    cache = json.loads(cache_f.read_text(encoding="utf-8")) if cache_f.exists() else {}
     overrides = load_overrides()
     img_dir = PHOTOS / "images"; img_dir.mkdir(parents=True, exist_ok=True)
     online = fetch
@@ -171,7 +189,7 @@ def photos(species, fetch, refresh):
                 print(f"  photo  {sci}: download failed ({e})")
         c["file"] = img.name if img.exists() and c.get("status") == "ok" else None
         cache[sci] = c
-    cache_f.write_text(json.dumps(cache, indent=1, ensure_ascii=False))
+    cache_f.write_text(json.dumps(cache, indent=1, ensure_ascii=False), encoding="utf-8")
     return cache
 
 # ----------------------------------------------------------------------------- species pages
@@ -382,6 +400,32 @@ def extras(D, base_url):
         lines.append(f"Sitemap: {base}/sitemap.xml")
     (DIST / "robots.txt").write_text("\n".join(lines) + "\n", encoding="utf-8")
 
+def review_page(D, info):
+    """photos/review.html: every species' photo beside its name, for checking by eye. Not part of the site."""
+    cards = []
+    for n in sorted(D["sp"]):
+        c, common = info.get(n, {}), D["sp"][n][1]
+        if c.get("file"):
+            src = "override" if c.get("override") else c.get("source", "taxon")
+            links = f'<a href="{E(c.get("page", ""))}">photo</a>' + (f' · <a href="{E(c["observation"])}">observation</a>' if c.get("observation") else "")
+            pic = f'<img src="images/{E(c["file"])}" alt="" loading="lazy">'
+        else:
+            src, links, pic = "missing", E(c.get("status", "not checked")), '<div class="none">No photo</div>'
+        cards.append(f'<figure class="{"warn" if src == "research-grade observation" else src}">{pic}<figcaption><b><i>{E(n)}</i></b><br>{E(common)}'
+                     f'<br><span class="src">{E(src)}</span> · {links}</figcaption></figure>')
+    (PHOTOS / "review.html").write_text(
+        '<!doctype html><meta charset="utf-8"><title>Photo review</title><style>'
+        'body{font:14px system-ui,sans-serif;margin:16px;background:#f6f6f4;color:#222}'
+        '.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:12px}'
+        'figure{margin:0;background:#fff;border:2px solid #ddd;border-radius:8px;overflow:hidden}'
+        'figure.warn{border-color:#e0a000}figure.missing{opacity:.6}'
+        'img,.none{width:100%;height:180px;object-fit:cover;display:block;background:#eee}.none{display:grid;place-items:center;color:#888}'
+        'figcaption{padding:8px;line-height:1.4}.src{font-size:12px;color:#666}</style>'
+        '<h1>Photo review</h1><p>Orange border = picked automatically from a research-grade observation: check that it shows the right, '
+        'living snake clearly. To block a photo, add <code>Scientific name,,,none,</code> to <code>photos/overrides.csv</code> '
+        '(licence column = none); to replace it, add a row with your own photo.</p>'
+        f'<div class="grid">{"".join(cards)}</div>', encoding="utf-8")
+
 # ----------------------------------------------------------------------------- main
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
@@ -404,10 +448,11 @@ def main():
     static_pages()
     species_pages(D, info)
     extras(D, a.base_url)
+    review_page(D, info)
     have = sum(1 for n in D["sp"] if info.get(n, {}).get("file"))
     missing = [n for n in D["sp"] if not info.get(n, {}).get("file")]
     print(f"\nBuilt {len(list(DIST.glob('*.html')))} pages into {DIST}")
-    print(f"Photos: {have} of {len(D['sp'])} species")
+    print(f"Photos: {have} of {len(D['sp'])} species - check them in photos/review.html")
     if missing:
         (ROOT / "photos" / "missing.txt").write_text("\n".join(f"{n}\t{info.get(n, {}).get('status', 'not checked')}" for n in missing) + "\n")
         print(f"  {len(missing)} without a photo - see photos/missing.txt; add them to photos/overrides.csv if you find one")
