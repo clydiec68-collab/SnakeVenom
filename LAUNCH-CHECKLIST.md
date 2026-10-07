@@ -7,7 +7,7 @@ The site is complete and every page builds. These are the items still open, in t
 1. **Expert review of the venom types page and the "Bitten?" panel.** The panel currently says "Call your local emergency number". Once the reviewer confirms them, add the right numbers for your main audience (for example South Africa) to `src/common.js`.
 2. **Photos.** Run `python build.py` on your computer. It couldn't reach iNaturalist from where the site was built, so there are no photos yet. Then look through the species pages and fix any poor choices in `photos/overrides.csv`.
 3. **Citations for the explainer pages.** The review notes have been removed from the live pages, but these sources are still needed:
-   - Scores explained: the LD50 statistical methods (probit, Spearman–Kärber, Reed–Muench), the claim that LD50 favours fast-acting venoms, the venom yield statements, and the onset reasoning (treatment delay).
+   - Scores explained: the LD50 statistical methods (probit, Spearman–Kärber, Reed–Muench), the claim that LD50 favours fast-acting venoms, the venom yield statements, and the onset reasoning (fast onset leaves less time to reach treatment; mild-seeming bites delay care-seeking).
    - Venom types: one source per row of the "How some well-known venoms work" table. The boomslang and twig snake procoagulant labels also need a source.
 4. **Domain.** Add your domain in Cloudflare, then rebuild with `--base-url https://your-domain` to create `sitemap.xml`.
 5. **A way to report errors.** The footer has no contact link yet. Decide on an email address or form, and add it to the footer in `src/common.js`.

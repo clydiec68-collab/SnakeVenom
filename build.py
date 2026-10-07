@@ -267,7 +267,7 @@ def species_pages(D, photo_info):
                        dim("Potency", s[10], pot_txt) + dim("Quantity", s[11], qty_txt), None if isnum(vh) else f"Missing: {vh}.")
         enc_txt = (f"Rated {enc_raw} out of 10. " if isnum(enc_raw) else "Not rated yet. ") + E(reason or "")
         bite_txt = f"Level {bite_raw} of 5: {E(D['bite_scale'].get(bite_raw, ''))}." if isnum(bite_raw) else "Not scored: temperament not documented."
-        ons_txt = E(onset) + ". Slow onset scores higher because people often delay treatment." if onset else "Not recorded yet."
+        ons_txt = E(onset) + ". Faster onset scores higher because it leaves less time to reach antivenom." if onset else "Not recorded yet."
         acc_txt = E(access) + "." if access else "Not recorded yet."
         hr_card = card("", "Human Risk", "How likely is a bite to happen and go badly?", hr, s[5], nHR,
                        dim("Encounter", s[12], enc_txt) + dim("Bite propensity", s[13], bite_txt) + dim("Onset", s[14], ons_txt) + dim("Antivenom access", s[15], acc_txt),
