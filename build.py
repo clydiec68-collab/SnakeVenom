@@ -240,7 +240,8 @@ def species_pages(D, photo_info):
     sp, sc, cb = D["sp"], D["sc"], D["cb"]
     nVH = sum(isnum(s[2]) for s in sc.values()); nHR = sum(isnum(s[4]) for s in sc.values()); nC = sum(isnum(c[11]) for c in cb.values())
     pts = [(n, sc[n][2], sc[n][4]) for n in sp if isnum(sc[n][2]) and isnum(sc[n][4])]
-    order = sorted(sp, key=lambda m: (sp[m][1] or m).lower())             # browse A to Z by common name, wrapping round
+    # browse in the list page's default order: Combined high to low, unscored species last A to Z, wrapping round
+    order = sorted(sp, key=lambda m: (0, -round(cb[m][11], 1), "") if isnum(cb[m][11]) else (1, 0, (sp[m][1] or m).lower()))
     for n, r in sp.items():
         s, c = sc[n], cb[n]
         common, other, fam, region, effects = r[1], r[2], r[3], r[4], r[5]
@@ -368,7 +369,7 @@ def data_js(D):
     for n, r in D["sp"].items():
         s, c = D["sc"][n], D["cb"][n]
         out.append(dict(sci=n, common=r[1], other=r[2], family=r[3], region=r[4], effects=r[5], ld50=r[6], route=r[7], ldTier=r[8],
-                        yieldMax=r[11], yTier=r[12], onset=r[16], access=r[17], deaths=public(r[18]), cfr=public(r[19]),
+                        yieldMax=r[11], yTier=r[12], encRaw=r[14], biteRaw=r[15], onset=r[16], access=r[17], deaths=public(r[18]), cfr=public(r[19]),
                         vh=num(s[2]), hr=num(s[4]), comb=num(c[11]), pot=num(s[10]), qty=num(s[11]), enc=num(s[12]), bite=num(s[13]),
                         ons=num(s[14]), acc=num(s[15]), dims=s[16], grade=s[6], flags=public_flags(s[7]),
                         vhRank=s[3], hrRank=s[5], combRank=c[12]))

@@ -54,6 +54,34 @@
   window.fmt = function (v, d) { return v == null ? "–" : Number(v).toFixed(d == null ? 1 : d); };
   window.slug = function (sci) { return "sp-" + sci.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "") + ".html"; };
   window.byName = function (sci) { return (window.SPECIES || []).find(function (s) { return s.sci === sci; }); };
+
+  // Chart labels: try spots around each point and keep the first that covers no other point, label, caption or the plot edge.
+  // labels: [{x, y, text}], pts: [{x, y}] (every plotted point), box: {l, t, r, b} in SVG units.
+  window.placeLabels = function (svg, labels, pts, box) {
+    var NS = "http://www.w3.org/2000/svg", R = 7;
+    var taken = [].map.call(svg.querySelectorAll(".quad, .contour-t"), function (e) { return e.getBBox(); });   // keep chart captions clear too
+    var spots = [];                                   // right, left, above, below and the diagonals, stepping further out each ring
+    [0, 10, 22].forEach(function (d) {
+      spots.push([10 + d, 4, "start"], [-10 - d, 4, "end"], [0, -11 - d, "middle"], [0, 19 + d, "middle"],
+                 [8 + d, -9 - d, "start"], [-8 - d, -9 - d, "end"], [8 + d, 17 + d, "start"], [-8 - d, 17 + d, "end"]);
+    });
+    var hit = function (a, b) { return a.x < b.x + b.width && b.x < a.x + a.width && a.y < b.y + b.height && b.y < a.y + a.height; };
+    labels.forEach(function (l) {
+      var t = document.createElementNS(NS, "text"); t.setAttribute("class", "lbl"); t.textContent = l.text; svg.appendChild(t);
+      var best = null;
+      spots.forEach(function (sp) {
+        if (best && best.cost === 0) return;
+        t.setAttribute("x", l.x + sp[0]); t.setAttribute("y", l.y + sp[1]); t.setAttribute("text-anchor", sp[2]);
+        var bb = t.getBBox(), r = { x: bb.x - 2, y: bb.y - 1, width: bb.width + 4, height: bb.height + 2 }, cost = 0;
+        pts.forEach(function (p) { if (hit(r, { x: p.x - R, y: p.y - R, width: 2 * R, height: 2 * R })) cost += 10; });
+        taken.forEach(function (o) { if (hit(r, o)) cost += 10; });
+        if (r.x < box.l || r.y < box.t || r.x + r.width > box.r || r.y + r.height > box.b) cost += 1000;   // never run off the chart
+        if (!best || cost < best.cost) best = { cost: cost, sp: sp, r: r };
+      });
+      t.setAttribute("x", l.x + best.sp[0]); t.setAttribute("y", l.y + best.sp[1]); t.setAttribute("text-anchor", best.sp[2]);
+      taken.push(best.r);
+    });
+  };
 })();
 
 // Species pages: left and right arrow keys step through species
