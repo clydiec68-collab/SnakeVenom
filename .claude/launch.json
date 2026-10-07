@@ -1,6 +1,7 @@
 {
   "version": "0.0.1",
   "configurations": [
-    { "name": "site", "runtimeExecutable": "python", "runtimeArgs": ["-m", "http.server", "8123", "-d", "dist"], "port": 8123 }
+    { "name": "site", "runtimeExecutable": "python", "runtimeArgs": ["-m", "http.server", "8123", "-d", "dist"], "port": 8123 },
+    { "name": "design-review", "runtimeExecutable": "python", "runtimeArgs": ["-m", "http.server", "8124", "-d", "design-review"], "port": 8124 }
   ]
 }
