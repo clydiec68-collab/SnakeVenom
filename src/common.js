@@ -55,3 +55,11 @@
   window.slug = function (sci) { return "sp-" + sci.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "") + ".html"; };
   window.byName = function (sci) { return (window.SPECIES || []).find(function (s) { return s.sci === sci; }); };
 })();
+
+// Species pages: left and right arrow keys step through species
+document.addEventListener("keydown", function (e) {
+  if (e.altKey || e.ctrlKey || e.metaKey || e.shiftKey || /^(INPUT|TEXTAREA|SELECT)$/.test(e.target.tagName)) return;
+  var rel = e.key === "ArrowLeft" ? "prev" : e.key === "ArrowRight" ? "next" : null;
+  var a = rel && document.querySelector('.pager a[rel="' + rel + '"]');
+  if (a) location.href = a.href;
+});

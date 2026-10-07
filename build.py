@@ -240,6 +240,7 @@ def species_pages(D, photo_info):
     sp, sc, cb = D["sp"], D["sc"], D["cb"]
     nVH = sum(isnum(s[2]) for s in sc.values()); nHR = sum(isnum(s[4]) for s in sc.values()); nC = sum(isnum(c[11]) for c in cb.values())
     pts = [(n, sc[n][2], sc[n][4]) for n in sp if isnum(sc[n][2]) and isnum(sc[n][4])]
+    order = sorted(sp, key=lambda m: (sp[m][1] or m).lower())             # browse A to Z by common name, wrapping round
     for n, r in sp.items():
         s, c = sc[n], cb[n]
         common, other, fam, region, effects = r[1], r[2], r[3], r[4], r[5]
@@ -314,10 +315,14 @@ def species_pages(D, photo_info):
                           f'<figcaption class="caption">Photo: {E(ph.get("attribution", ""))}, via <a href="{E(ph.get("page", ""))}" rel="noopener">iNaturalist</a></figcaption></figure>')
         else:
             photo_html = '<figure class="photo-fig"><div class="photo photo-none" role="img" aria-label="No photo yet">Photo coming soon</div></figure>'
+        i = order.index(n)
+        prv, nxt = order[i - 1], order[(i + 1) % len(order)]
+        pager = (f'<nav class="pager" aria-label="Browse species"><a rel="prev" href="{slug(prv)}"><span>← Previous</span>{E(sp[prv][1])}</a>'
+                 f'<a rel="next" href="{slug(nxt)}"><span>Next →</span>{E(sp[nxt][1])}</a></nav>')
         aka = f'<span class="aka">Also called {E(other).replace("; ", ", ")}</span>' if other else ""
 
         page = HEAD.format(title=f"{E(common)} | {SITE}", desc=f"{E(common)} ({E(n)}): how dangerous its venom is, how likely a bite is to go badly, and where every number comes from.", page="species.html") + f"""<main class="species-page">
-  <nav class="crumbs" aria-label="Breadcrumb"><a href="species.html">All species</a> / {E(common)}</nav>
+  <div class="crumbs-row"><nav class="crumbs" aria-label="Breadcrumb"><a href="species.html">All species</a> / {E(common)}</nav>{pager}</div>
   <section class="top">
     <div class="ident">
       <span class="eyebrow">{E(FAMILY.get(fam, fam))} · {E(region)}</span>
@@ -349,6 +354,7 @@ def species_pages(D, photo_info):
   </section>
   {grade_html}
   {sim_html}
+  {pager}
 </main>
 </body>
 </html>

@@ -138,6 +138,14 @@ a.card:hover { border-color: var(--accent); }
 /* Species pages */
 .crumbs { font-size: 0.85rem; color: var(--muted); }
 .crumbs a { color: var(--ink-2); }
+.crumbs-row { display: flex; flex-wrap: wrap; gap: 10px 20px; justify-content: space-between; align-items: center; }
+.pager { display: flex; gap: 8px; }
+.pager a { display: grid; gap: 1px; padding: 6px 12px; border: 1px solid var(--rule); border-radius: var(--radius); text-decoration: none; color: var(--ink); font-size: 0.88rem; line-height: 1.25; min-width: 0; }
+.pager a:hover { border-color: var(--accent); }
+.pager a span { font-size: 0.72rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); font-weight: 600; }
+.pager a[rel="next"] { text-align: right; }
+main > .pager { justify-content: space-between; }
+main > .pager a { flex: 1 1 0; max-width: 320px; }
 .top { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: 28px; align-items: start; }
 @media (max-width: 820px) { .top { grid-template-columns: minmax(0,1fr); } }
 .ident { display: grid; gap: 10px; }
